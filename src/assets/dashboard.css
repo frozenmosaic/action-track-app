@@ -2,15 +2,6 @@ body {
   font-size: .875rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 200%;
-}
-
 .feather {
   width: 16px;
   height: 16px;
@@ -53,6 +44,10 @@ h6 {
 .active {
   color: #007bff;
   font-weight: bold;
+}
+
+.legend {
+  display: flex;
 }
 
 /* .sidebar .nav-link {

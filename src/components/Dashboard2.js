@@ -1,5 +1,6 @@
 import React from "react";
 import { ACTIONS } from "./actions";
+import Pagination from "./Pagination";
 
 function Dashboard(props) {
   const prog = (act) => {
@@ -13,7 +14,7 @@ function Dashboard(props) {
       default:
         return "text-danger";
     }
-  }
+  };
 
   const progText = (act) => {
     switch (act.progress) {
@@ -26,30 +27,29 @@ function Dashboard(props) {
       default:
         return "Not Confirmed";
     }
-  }
+  };
 
-  const actionTable = ACTIONS.sort((a,b) => {
-      if (a.priority > b.priority) return 1;
-      return -1;
+  const actionTable = ACTIONS.sort((a, b) => {
+    if (a.priority > b.priority) return 1;
+    return -1;
   }).map((act) => {
     return (
       <tr>
         <td>{act.id + 1}</td>
         <td style={{ width: "50%" }}>{act.action}</td>
-        <td>{act.priority}</td> 
-        <td>{act.to}</td> 
+        <td>{act.priority}</td>
+        <td>{act.to}</td>
         <td>{act.department}</td>
-        <td class={prog(act)}>
-          {progText(act)}
-        </td>
+        <td class={prog(act)}>{progText(act)}</td>
       </tr>
     );
   });
+
   return (
     <>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
-          <h1 class="h2">Dashboard</h1>
+          <h3>Dashboard</h3>
         </div>
 
         <div class="table-responsive">
@@ -68,32 +68,7 @@ function Dashboard(props) {
           </table>
         </div>
 
-        <div class="btn-toolbar justify-content-start pt-5">
-          <nav aria-label="Page navigation example">
-            <ul class="pagination pagination-sm">
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  1
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  2
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <Pagination />
       </main>
     </>
   );

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 function Header(props) {
   return (
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <div class="navbar-brand col-sm-3 col-md-2 mr-0 sidebar-heading">
+      <div class="navbar-brand col-sm-3 col-md-2 mr-0 sidebar-heading pl-4">
         Action App
       </div>
       <input

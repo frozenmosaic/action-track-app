@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col, FormGroup, Input} from "reactstrap";
 import { ACTIONS } from "./actions";
+import Pagination from "./Pagination";
 
 function DashboardMem(props) {
   const actionTable = ACTIONS.sort((a, b) => {
@@ -28,7 +29,7 @@ function DashboardMem(props) {
     <>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
-          <h1 class="h2">Dashboard</h1>
+          <h3>Dashboard</h3>
         </div>
 
         <div class="table-responsive">
@@ -51,34 +52,7 @@ function DashboardMem(props) {
             <tbody>{actionTable}</tbody>
           </table>
         </div>
-        <div class="container-fluid d-flex pt-5">
-          <div class="w-100">
-            <nav aria-label="">
-              <ul class="pagination pagination-sm">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    1
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">
-                    2
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        <Pagination />
       </main>
     </>
   );
