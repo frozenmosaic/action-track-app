@@ -3,7 +3,7 @@ import { ACTIONS } from "./actions";
 import Pagination from "./Pagination";
 
 function Dashboard(props) {
-  const prog = (act) => {
+  const progColor = (act) => {
     switch (act.progress) {
       case 1:
         return "";
@@ -40,7 +40,7 @@ function Dashboard(props) {
         <td>{act.priority}</td>
         <td>{act.to}</td>
         <td>{act.department}</td>
-        <td class={prog(act)}>{progText(act)}</td>
+        <td class={progColor(act)}>{progText(act)}</td>
       </tr>
     );
   });

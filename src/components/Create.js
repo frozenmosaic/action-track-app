@@ -6,10 +6,8 @@ import {
   Input,
   Row,
   Col,
-  InputGroupButtonDropdown,
-  DropdownMenu,
-  DropdownItem,
-  DropdownToggle,
+  Label,
+  FormText,
 } from "reactstrap";
 
 function Create(props) {
@@ -17,10 +15,7 @@ function Create(props) {
     <>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
-          <h1 class="h2">Create Action</h1>
-          <div>
-            <button class="btn btn-primary">Import Actions</button>
-          </div>
+          <h3>Create Action</h3>
         </div>
         <Form>
           <FormGroup>
@@ -67,7 +62,27 @@ function Create(props) {
           <FormGroup>
             <Row>
               <Col md={{ size: 10, offset: 2 }}>
-                <Button color="primary">Create</Button>
+                <Button className="btn-sm btn-outline-primary">Create</Button>
+              </Col>
+            </Row>
+          </FormGroup>
+        </Form>
+        <hr/>
+        <h3 className="pb-1 mb-3">Bulk Import Action</h3>
+        <Form>
+          <FormGroup>
+            <Row>
+              <Label className="col-2 col-form-label">Action List File</Label>
+              <div className="col-7">
+                <Input type="file" />
+                <FormText color="muted">Accepted extensions: .csv.</FormText>
+              </div>
+            </Row>
+          </FormGroup>
+          <FormGroup>
+            <Row>
+              <Col md={{ size: 10, offset: 2 }}>
+                <button class="btn btn-sm btn-outline-primary">Import Actions</button>
               </Col>
             </Row>
           </FormGroup>

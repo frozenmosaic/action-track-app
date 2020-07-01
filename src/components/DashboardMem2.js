@@ -4,6 +4,19 @@ import { ACTIONS } from "./actions";
 import Pagination from "./Pagination";
 
 function DashboardMem2(props) {
+  const progColor = (act) => {
+    switch (act.progress) {
+      case 1:
+        return "";
+      case 2:
+        return "text-info";
+      case 3:
+        return "text-success";
+      default:
+        return "text-danger";
+    }
+  };
+
   const prog = (act) => {
     switch (act.progress) {
       case 1:
@@ -32,9 +45,10 @@ function DashboardMem2(props) {
             <Input 
               type="select"
               value={prog(act)}
-              style={{ height: "30px", padding: "1px", fontSize: "14px"}}
+              className={progColor(act)}
+              style={{ height: "30px", padding: "1px", fontSize: "14px", verticalAlign: "top"}}
             >
-              <option>--</option>
+              <option>Not Confirmed</option>
               <option>Confirmed</option>
               <option>In Progress</option>
               <option>Completed</option>

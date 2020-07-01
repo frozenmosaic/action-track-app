@@ -15,7 +15,7 @@ function DashboardMem(props) {
         <td>{act.priority}</td>
         <td>{act.by}</td>
         <td>{act.department}</td>
-        <td class={act.confirm ? "text-success" : ""}>
+        <td class={act.confirm ? "text-success" : "text-danger"}>
           {act.confirm ? "Confirmed" : "Not Confirmed"}
         </td>
         <td class="text-center">
