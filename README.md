@@ -5,7 +5,6 @@
 The prototype is meant to serve as a mock-up. No back-end functions were implemented.
 
 # 1. Background
----
 
 A company would like to develop a feature to ensure that team members "perform an action" (Confirm I've read a new policy, Confirm I've changed the expired password for security, etc.). An idea is suggested: Build an app to require the selected team members/departments/whole company to confirm perform an action (I did it):
 
@@ -14,12 +13,12 @@ A company would like to develop a feature to ensure that team members "perform a
 - In the Report Dashboard, show the status of how the "Action" has been performed? Who did or did not? etc. (Need more insights from you)
   
 # 2. Goals
----
+
 Allow managers to create, assign and track actions. <br/>
 Allow team members to receive and confirm status of actions.
 
 # 3. User Journey
----
+
 **Manager**
 
 - Signs into their profile if existing; otherwise creates one
@@ -32,7 +31,7 @@ Allow team members to receive and confirm status of actions.
 - Landing and only page is Dashboard
   
 # 4. Sitemap
----
+
 Single Page Application
 
 - Sign-in Dialog
@@ -40,7 +39,6 @@ Single Page Application
   - Create Action (for managers)
 
 # 5. Main Features
----
 
 ## Dashboard
 
@@ -77,7 +75,7 @@ Bulk Creation
   - Allow for imports to populate database (which then will update dashboard). Accepted file types: .csv.
   
 # 6. Potential Feature Expansion
----
+
 1. Assignment Notification:
    - Managers: new completions
    - Members: new assigned actions
@@ -86,5 +84,5 @@ Bulk Creation
 4. Deadline Tracking
 
 # 7. References
----
+
 Dashboard Design Inspiration: https://getbootstrap.com/docs/4.5/examples/dashboard/
