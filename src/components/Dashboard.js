@@ -1,6 +1,8 @@
 import React from "react";
-import { ACTIONS } from "./actions";
+import { ACTIONS } from "../shared/actions";
+import SortedTable from "./SortedTable"
 import Pagination from "./Pagination";
+import Dashboard2 from "./Dashboard2"
 
 function Dashboard(props) {
   const actionTable = ACTIONS.sort((a, b) => {
@@ -14,7 +16,7 @@ function Dashboard(props) {
         <td>{act.priority}</td>
         <td>{act.to}</td>
         <td>{act.department}</td>
-        <td class={act.confirm ? "text-success" : "text-danger"}>
+        <td class={act.confirm ? "text-success" : ""}>
           {act.confirm ? "Confirmed" : "Not Confirmed"}
         </td>
       </tr>
@@ -27,22 +29,7 @@ function Dashboard(props) {
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap  pb-1 mb-3">
           <h3>Dashboard</h3>
         </div>
-
-        <div class="table-responsive">
-          <table class="table table-sm">
-            <thead class="thead-dark">
-              <tr>
-                <th class="align-middle">#</th>
-                <th class="align-middle">Action</th>
-                <th class="align-middle">Priority</th>
-                <th class="align-middle">To</th>
-                <th class="align-middle">Department</th>
-                <th class="align-middle">Status</th>
-              </tr>
-            </thead>
-            <tbody>{actionTable}</tbody>
-          </table>
-        </div>
+        <SortedTable />
         <Pagination />
       </main>
     </>

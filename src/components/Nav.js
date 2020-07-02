@@ -12,46 +12,21 @@ function Nav(props) {
             <NavLink
               className="d-flex align-items-center inactive"
               activeClassName="active"
-              exact
-              to="/"
-            >
-              <Home class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Dashboard 1.0</span>
-            </NavLink>
-            <NavLink
-              className="d-flex align-items-center inactive"
-              activeClassName="active"
               to="/dashboard-mgm"
             >
               <Home class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Dashboard-M 1.0</span>
-            </NavLink>
-            <NavLink
-              className="d-flex align-items-center inactive pb-5"
-              activeClassName="active"
-              to="/create"
-            >
-              <CheckSquare class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Create</span>
-            </NavLink>
-            <NavLink
-              className="d-flex align-items-center inactive mt-auto"
-              activeClassName="active"
-              to="/dashboard2"
-            >
-              <Home class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Dashboard 1.1</span>
+              <span class="pl-1">Dashboard</span>
             </NavLink>
             <NavLink
               className="d-flex align-items-center inactive"
               activeClassName="active"
-              to="/dashboard-mgm2"
+              to="/dashboard-mem"
             >
               <Home class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Dashboard-M 1.1</span>
+              <span class="pl-1">Dashboard-M</span>
             </NavLink>
             <NavLink
-              className="d-flex align-items-center inactive pb-5"
+              className="d-flex align-items-center inactive"
               activeClassName="active"
               to="/create"
             >
@@ -59,10 +34,10 @@ function Nav(props) {
               <span class="pl-1">Create</span>
             </NavLink>
             <NavItem
-              className="pl-3 text-muted navbar-text"
+              className="pl-4 pt-5 text-muted navbar-text"
               style={{ fontStyle: "italic" }}
             >
-              M stands for Managers
+              M stands for Members
             </NavItem>
           </Navbar>
         </div>

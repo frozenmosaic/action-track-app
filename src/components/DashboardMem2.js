@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, FormGroup } from "reactstrap";
-import { ACTIONS } from "./actions";
-import Pagination from "./Pagination";
+import { ACTIONS } from "../shared/actions";
+import PaginationMem from "./PaginationMem";
 
 function DashboardMem2(props) {
   const progColor = (act) => {
@@ -34,19 +34,30 @@ function DashboardMem2(props) {
     return -1;
   }).map((act) => {
     return (
-      <tr class="align-middle">
+      <tr>
         <td>{act.id + 1}</td>
         <td style={{ width: "50%" }}>{act.action}</td>
         <td>{act.priority}</td>
         <td>{act.by}</td>
         <td>{act.department}</td>
         <td>
-          <FormGroup className="form-control-sm">
-            <Input 
+          <FormGroup
+            className="form-control-sm"
+            style={{
+              margin: "0",
+              padding: "0.5",
+            }}
+          >
+            <Input
               type="select"
               value={prog(act)}
               className={progColor(act)}
-              style={{ height: "30px", padding: "1px", fontSize: "14px", verticalAlign: "top"}}
+              style={{
+                height: "30px",
+                fontSize: "14px",
+                margin: "0",
+                padding: "0",
+              }}
             >
               <option>Not Confirmed</option>
               <option>Confirmed</option>
@@ -63,7 +74,7 @@ function DashboardMem2(props) {
     <>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
-          <h3>Dashboard</h3>
+          <h5>Another Version</h5>
         </div>
 
         <div class="table-responsive">
@@ -85,7 +96,7 @@ function DashboardMem2(props) {
             <tbody>{actionTable}</tbody>
           </table>
         </div>
-        <Pagination />
+        <PaginationMem />
       </main>
     </>
   );

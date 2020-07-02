@@ -59,6 +59,13 @@ function Create(props) {
               </div>
             </Row>
           </FormGroup>
+          <FormGroup check>
+            <Row>
+              <Col className="pb-3" md={{ size: 9, offset: 2 }}>
+                  <Input type="checkbox" />Notify Members
+              </Col>
+            </Row>
+          </FormGroup>
           <FormGroup>
             <Row>
               <Col md={{ size: 10, offset: 2 }}>
@@ -67,8 +74,8 @@ function Create(props) {
             </Row>
           </FormGroup>
         </Form>
-        <hr/>
-        <h3 className="pb-1 mb-3">Bulk Import Action</h3>
+        <hr />
+        <h3 className="pb-1 mb-3">Import Action</h3>
         <Form>
           <FormGroup>
             <Row>
@@ -79,10 +86,19 @@ function Create(props) {
               </div>
             </Row>
           </FormGroup>
+          <FormGroup check>
+            <Row>
+              <Col className="pb-3" md={{ size: 9, offset: 2 }}>
+                  <Input type="checkbox" />Notify Members
+              </Col>
+            </Row>
+          </FormGroup>
           <FormGroup>
             <Row>
               <Col md={{ size: 10, offset: 2 }}>
-                <button class="btn btn-sm btn-outline-primary">Import Actions</button>
+                <button class="btn btn-sm btn-outline-primary">
+                  Import Actions
+                </button>
               </Col>
             </Row>
           </FormGroup>

@@ -4,7 +4,7 @@
 
 Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Back-end functions and display responsiveness were *not* implemented.
 
-**Tech Stack**: ReactJS (via create-react-app), React-Router-DOM, Bootstrap (via ReactStrap)
+**Tech Stack**: ReactJS (via create-react-app), React-Router-DOM, Bootstrap (via ReactStrap), React-Table
 
 # 2. Background
 
@@ -51,13 +51,15 @@ Refer to sitemap.png
 - All actions assigned by themselves, sorted by priority
 - Assignees
 - Status
+- Sortable
 
 **Team Members**
 - All actions assigned by managers, sorted by priority
 - Assigners
 - Status and Submission / Updating of statuses: two versions:
-  - 1.0: boolean (confirmed / not confirmed)
-  - 1.1: range (confirmed / in progress / completed), color-coded
+  - 1.0: 2 values (confirmed / not confirmed), color-coded
+  - 1.1: more than 2 values (confirmed / in progress / completed), color-coded
+- Sortable
 
 **Both**
 - Pagination

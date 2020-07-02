@@ -1,5 +1,5 @@
 import React from "react";
-import { ACTIONS } from "./actions";
+import { ACTIONS } from "../shared/actions";
 import Pagination from "./Pagination";
 
 function Dashboard(props) {
@@ -67,7 +67,6 @@ function Dashboard(props) {
             <tbody>{actionTable}</tbody>
           </table>
         </div>
-
         <Pagination />
       </main>
     </>

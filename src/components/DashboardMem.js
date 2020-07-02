@@ -1,7 +1,8 @@
 import React from "react";
-import { Row, Col, FormGroup, Input} from "reactstrap";
-import { ACTIONS } from "./actions";
-import Pagination from "./Pagination";
+import { Row, Col, FormGroup, Input } from "reactstrap";
+import { ACTIONS } from "../shared/actions";
+import PaginationMem from "./PaginationMem";
+import DashboardMem2 from "./DashboardMem2"
 
 function DashboardMem(props) {
   const actionTable = ACTIONS.sort((a, b) => {
@@ -15,7 +16,7 @@ function DashboardMem(props) {
         <td>{act.priority}</td>
         <td>{act.by}</td>
         <td>{act.department}</td>
-        <td class={act.confirm ? "text-success" : "text-danger"}>
+        <td class={act.confirm ? "text-success" : ""}>
           {act.confirm ? "Confirmed" : "Not Confirmed"}
         </td>
         <td class="text-center">
@@ -52,7 +53,7 @@ function DashboardMem(props) {
             <tbody>{actionTable}</tbody>
           </table>
         </div>
-        <Pagination />
+        <PaginationMem />
       </main>
     </>
   );
