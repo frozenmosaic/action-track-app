@@ -1,11 +1,9 @@
-import React, { useState, Component } from "react";
-import { Row, Col, FormGroup, Input } from "reactstrap";
-import { ACTIONS, modifyActions } from "../shared/actions";
+import React, { useState } from "react";
+import { ACTIONS } from "../shared/actions";
 import PaginationMem from "./PaginationMem";
-import DashboardMem2 from "./DashboardMem2";
 
 function DashboardMem(props) {
-  var [check, setCheck] = useState(props.actions.map(a => null));
+  var [check, setCheck] = useState(props.actions.map((a) => null));
   var [id, setId] = useState(new Array());
 
   const handleInput = (event) => {
@@ -23,10 +21,9 @@ function DashboardMem(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.confirmCheck(id);
-    setCheck(check.map(c => false));
+    setCheck(check.map((c) => false));
     setId(new Array());
     // console.log(id);
-    // modifyActions(id)
     // setState({check: this.state.map(c => false)})
     // setCheck(
     //   check.forEach((c) => {
@@ -71,6 +68,20 @@ function DashboardMem(props) {
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
           <h3>Dashboard</h3>
         </div>
+        {/* <div
+          class="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          Success
+        </div> */}
         <form onSubmit={handleSubmit}>
           <div class="table-responsive">
             <table class="table table-sm">

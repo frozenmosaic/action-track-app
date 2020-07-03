@@ -31,9 +31,7 @@ function Main(props) {
       <div class="container-fluid" style={{ height: "80vh" }}>
         <Switch>
           <Route exact path="/">
-            <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-              <h1>Welcome!</h1>
-            </main>
+            <Dashboard />
           </Route>
           <Route path="/dashboard-mgm">
             <Dashboard />

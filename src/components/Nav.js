@@ -23,7 +23,7 @@ function Nav(props) {
               to="/dashboard-mem"
             >
               <Home className="feather" size={16} strokeWidth={1.5} />
-              <span className="pl-1">Dashboard-M</span>
+              <span className="pl-1">Dashboard-Members</span>
             </NavLink>
             <NavLink
               className="d-flex align-items-center inactive"
@@ -33,12 +33,12 @@ function Nav(props) {
               <CheckSquare className="feather" size={16} strokeWidth={1.5} />
               <span className="pl-1">Create</span>
             </NavLink>
-            <NavItem
+            {/* <NavItem
               className="pl-4 pt-5 text-muted navbar-text"
               style={{ fontStyle: "italic" }}
             >
               M stands for Members
-            </NavItem>
+            </NavItem> */}
           </Navbar>
         </div>
         <Navbar className="list-unstyled">
