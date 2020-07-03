@@ -14,8 +14,8 @@ import { confirmCheck } from "../redux/ActionCreators";
 
 const mapStateToProps = (state) => {
   return {
-    confirmCheck: state.confirmCheck,
-    actions: state.actions
+    // confirmCheck: state.confirmCheck,
+    actions: state.confirmCheck
   };
 };
 
@@ -41,7 +41,7 @@ function Main(props) {
           <Route path="/dashboard-mem">
             <DashboardMem
               confirmCheck={props.confirmCheck}
-              actions={props.confirmCheck}
+              actions={props.actions}
             />
           </Route>
           <Route path="/dashboard-mgm2">

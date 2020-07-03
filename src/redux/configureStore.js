@@ -1,10 +1,8 @@
-import { createStore } from "redux"
-import { ConfirmCheck } from "./confirmCheck"
+import { createStore, combineReducers } from "redux";
+import { ConfirmCheck, initialState } from "./confirmCheck";
 
-const configureStore = () => {
-    const store = createStore(ConfirmCheck)
+export const configureStore = () => {
+  const store = createStore(combineReducers({ confirmCheck: ConfirmCheck }));
 
-    return store
-}
-
-export default configureStore
+  return store;
+};

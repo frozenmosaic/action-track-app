@@ -1,17 +1,23 @@
 import { ACTIONS } from "../shared/actions";
-import * as ActionTypes from "./ActionTypes"
+import * as ActionTypes from "./ActionTypes";
+
+export const initialState = {
+  actions: ACTIONS,
+};
 
 export const ConfirmCheck = (state = ACTIONS, action) => {
   switch (action.type) {
     case ActionTypes.CONFIRM_CHECKBOX:
       var cfAct = action.payload;
+
       var newState = state.map((act) => {
-        if (cfAct.id.includes(act.id)) return Object.assign({}, act, { confirm: !act.confirm})
-        return act
+        if (cfAct.id.includes(act.id))
+          return Object.assign({}, act, { confirm: !act.confirm });
+        return act;
       });
 
-      return newState
-      
+      return newState;
+
     default:
       return state;
   }
