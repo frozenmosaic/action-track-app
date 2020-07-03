@@ -11,7 +11,7 @@ function Pagination(props) {
             <NavLink
               className="d-flex align-items-center inactive page-item page-link"
               activeClassName="active"
-              to="/dashboard-mgm"
+              exact to="/"
             >
               <span class="pl-1">Version 1</span>
             </NavLink>

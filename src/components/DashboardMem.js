@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ACTIONS } from "../shared/actions";
 import PaginationMem from "./PaginationMem";
+import STMem from "./STMem"
 
 function DashboardMem(props) {
   var [check, setCheck] = useState(props.actions.map((a) => null));
@@ -24,7 +25,6 @@ function DashboardMem(props) {
     setCheck(check.map((c) => false));
     setId(new Array());
     // console.log(id);
-    // setState({check: this.state.map(c => false)})
     // setCheck(
     //   check.forEach((c) => {
     //     if (id.includes(c.id)) {
@@ -33,11 +33,6 @@ function DashboardMem(props) {
     //   })
     // );
   };
-
-  // sort((a, b) => {
-  //   if (a.priority > b.priority) return 1;
-  //   return -1;
-  // }).
 
   const actionTable = props.actions.map((act) => {
     return (

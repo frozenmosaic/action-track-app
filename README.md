@@ -2,9 +2,9 @@
 
 **App deployed at: https://hidden-mesa-35540.herokuapp.com/**
 
-Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Back-end functions and display responsiveness were *not* implemented.
+Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Features and display responsiveness were *not* implemented.
 
-**Tech Stack**: ReactJS (via create-react-app), React-Router-DOM, Bootstrap (via ReactStrap), React-Table
+**Tech Stack**: ReactJS (bootstrapped via create-react-app), Redux, React-Router-DOM, Bootstrap
 
 # 2. Background
 
@@ -28,7 +28,7 @@ A company would like to develop a feature to ensure that team members "perform a
 * Basic user authentication
 
 # 4. Sitemap 
-Refer to sitemap.png
+![](sitemap.png)
 
 # 5. User Journey
 
@@ -65,12 +65,14 @@ Refer to sitemap.png
 
 ![](confirm.gif)
 
+Action status changes are populated into database.
+
 **Both**
 - Pagination
 
 ## 6.2. Create Action
 
-Create Form
+**Create Form**
   - Action
   - Priority level
   - Assign to multiple assignees
@@ -80,19 +82,19 @@ Create Form
   - Additional Notes
   - Notify
 
-Form Validation
+**Form Validation**
 - Action is required
 - Assignee is required
 - Default priority value is null
 
-Bulk Creation
+**Bulk Creation**
   - Allow for imports. Accepted file types: .csv.
 
-Created actions are populated into database, which then will update the app's state and dashboard.
+Created actions are populated into database.
 
 ## 6.3 Search
 
-  Search for employee names (managers/members), departments, action content
+Search for employee names (managers/members), departments, action content
 
 ## 6.4 User Profile
 

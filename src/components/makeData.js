@@ -1,36 +1,61 @@
-import { ACTIONS } from "../shared/actions"
+import React from "react";
+import { ACTIONS } from "../shared/actions";
 
 const makeHeader = (headers) => {
-  const columns = []
+  const columns = [];
   headers.forEach((header, index) => {
-    columns.push({ Header: header, accessor: "col" + (parseInt(index) + 1) })
-  })
+    columns.push({ Header: header, accessor: "col" + (parseInt(index) + 1) });
+  });
 
-  return columns
-}
+  return columns;
+};
 
 const makeData = (headers) => {
-  const data = []
+  const data = [];
 
-  ACTIONS.forEach(act => {
-    let row = {}
+  ACTIONS.forEach((act) => {
+    let row = {};
     headers.forEach((header, index) => {
-      let headerName = header.toLowerCase()
-      let colName = "col" + (index + 1)
-      header == "Confirm" ?
-        row[colName] = act[headerName] ? "Confirmed" : "Not Confirmed"
-      :
-        row[colName] = act[headerName]
-    })
-    data.push(row)
-  })
+      let headerName = header.toLowerCase();
+      let colName = "col" + (index + 1);
+      header == "Confirm"
+        ? (row[colName] = act[headerName] ? "Confirmed" : "Not Confirmed")
+        : (row[colName] = act[headerName]);
+    });
+    data.push(row);
+  });
 
-  return data
-}
+  return data;
+};
+
+const makeDataMem = (headers) => {
+  const data = [];
+
+  ACTIONS.forEach((act) => {
+    let row = {};
+    headers.forEach((header, index) => {
+      let headerName = header.toLowerCase();
+      let colName = "col" + (index + 1);
+      if (header == "Status") {
+        row[colName] = act["confirm"] ? "Confirmed" : "Not Confirmed";
+        console.log(act["confirm"]);
+      } else if (header == "Confirm") {
+        row[colName] = <div></div>
+      } else {
+        row[colName] = act[headerName];
+      }
+    });
+    data.push(row);
+    console.log(row);
+  });
+
+  return data;
+};
 
 const funcs = {
-    makeHeader,
-    makeData
-}
+  makeHeader,
+  makeData,
+  makeDataMem,
+};
 
 export default funcs;

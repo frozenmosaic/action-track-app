@@ -12,7 +12,7 @@ function Nav(props) {
             <NavLink
               className="d-flex align-items-center inactive"
               activeClassName="active"
-              to="/dashboard-mgm"
+              exact to="/"
             >
               <Home className="feather" size={16} strokeWidth={1.5} />
               <span className="pl-1">Dashboard</span>
