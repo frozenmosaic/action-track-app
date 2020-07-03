@@ -1,6 +1,6 @@
 # 1. Action App
 
-**App deployed at: https://hidden-mesa-35540.herokuapp.com/**
+**App deployed at: https://hidden-mesa.web.app/**
 
 Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Features and display responsiveness were *not* implemented.
 
