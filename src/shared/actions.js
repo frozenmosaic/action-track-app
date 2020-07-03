@@ -54,3 +54,11 @@ export const ACTIONS = [
     progress: null,
   },
 ];
+
+export const modifyActions = (id) => {
+    ACTIONS = ACTIONS.map(a => {
+      if (id.includes(a.id)) {
+        a.confirm = !a.confirm
+      }
+    })
+}

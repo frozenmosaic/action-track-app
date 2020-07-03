@@ -5,33 +5,33 @@ import { Navbar, NavItem, Col } from "reactstrap";
 
 function Nav(props) {
   return (
-    <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
+    <div className="row">
+      <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+        <div className="sidebar-sticky">
           <Navbar className="list-unstyled">
             <NavLink
               className="d-flex align-items-center inactive"
               activeClassName="active"
               to="/dashboard-mgm"
             >
-              <Home class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Dashboard</span>
+              <Home className="feather" size={16} strokeWidth={1.5} />
+              <span className="pl-1">Dashboard</span>
             </NavLink>
             <NavLink
               className="d-flex align-items-center inactive"
               activeClassName="active"
               to="/dashboard-mem"
             >
-              <Home class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Dashboard-M</span>
+              <Home className="feather" size={16} strokeWidth={1.5} />
+              <span className="pl-1">Dashboard-M</span>
             </NavLink>
             <NavLink
               className="d-flex align-items-center inactive"
               activeClassName="active"
               to="/create"
             >
-              <CheckSquare class="feather" size={16} stroke-width={1.5} />
-              <span class="pl-1">Create</span>
+              <CheckSquare className="feather" size={16} strokeWidth={1.5} />
+              <span className="pl-1">Create</span>
             </NavLink>
             <NavItem
               className="pl-4 pt-5 text-muted navbar-text"

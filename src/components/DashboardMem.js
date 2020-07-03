@@ -1,43 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { Row, Col, FormGroup, Input } from "reactstrap";
-import { ACTIONS } from "../shared/actions";
+import { ACTIONS, modifyActions } from "../shared/actions";
 import PaginationMem from "./PaginationMem";
 import DashboardMem2 from "./DashboardMem2";
 
 function DashboardMem(props) {
-  
-  const id = []
+  var [check, setCheck] = useState(props.actions.map(a => null));
+  var [id, setId] = useState(new Array());
+
   const handleInput = (event) => {
     var targetId = event.target.id;
-    console.log(targetId)
-    id.push(parseInt(targetId))
+    var checked = event.target.checked;
+    // alert(checked)
+    if (checked) {
+      id.push(parseInt(targetId));
+      setId(id);
+    }
+
+    console.log(id);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(id)
-    props.confirmCheck(id)
+    props.confirmCheck(id);
+    setCheck(check.map(c => false));
+    setId(new Array());
+    // console.log(id);
+    // modifyActions(id)
+    // setState({check: this.state.map(c => false)})
+    // setCheck(
+    //   check.forEach((c) => {
+    //     if (id.includes(c.id)) {
+    //       c.confirm = !c.confirm;
+    //     }
+    //   })
+    // );
   };
 
-  const actionTable = props.actions.sort((a, b) => {
-    if (a.priority > b.priority) return 1;
-    return -1;
-  }).map((act) => {
+  // sort((a, b) => {
+  //   if (a.priority > b.priority) return 1;
+  //   return -1;
+  // }).
+
+  const actionTable = props.actions.map((act) => {
     return (
-      <tr class="align-middle">
+      <tr className="align-middle">
         <td>{act.id + 1}</td>
         <td style={{ width: "50%" }}>{act.action}</td>
         <td>{act.priority}</td>
         <td>{act.by}</td>
         <td>{act.department}</td>
-        <td class={act.confirm ? "text-success" : ""}>
+        <td className={act.confirm ? "text-success" : ""}>
           {act.confirm ? "Confirmed" : "Not Confirmed"}
         </td>
-        <td class="text-center">
+        <td className="text-center">
           <input
             type="checkbox"
             id={act.id}
-            value={act.id}
+            checked={check[act.id]}
             onChange={handleInput}
           />
         </td>
@@ -77,19 +97,19 @@ function DashboardMem(props) {
           </div>
         </form>
         {/* <form onSubmit={handleSubmit} name="form">
-          <div class="form-group form-check">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1"
-              value="no"
-              onChange={handleInput}
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </form> */}
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="exampleCheck1"
+                value="no"
+                onChange={handleInput}
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form> */}
         <PaginationMem />
       </main>
     </>

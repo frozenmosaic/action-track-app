@@ -29,10 +29,12 @@ function Dashboard(props) {
     }
   };
 
-  const actionTable = ACTIONS.sort((a, b) => {
-    if (a.priority > b.priority) return 1;
-    return -1;
-  }).map((act) => {
+  // sort((a, b) => {
+  //   if (a.priority > b.priority) return 1;
+  //   return -1;
+  // })
+
+  const actionTable = ACTIONS.map((act) => {
     return (
       <tr>
         <td>{act.id + 1}</td>

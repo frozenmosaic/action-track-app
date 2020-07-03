@@ -29,10 +29,11 @@ function DashboardMem2(props) {
         return "--";
     }
   };
-  const actionTable = ACTIONS.sort((a, b) => {
-    if (a.priority > b.priority) return 1;
-    return -1;
-  }).map((act) => {
+  // sort((a, b) => {
+  //   if (a.priority > b.priority) return 1;
+  //   return -1;
+  // })
+  const actionTable = ACTIONS.map((act) => {
     return (
       <tr>
         <td>{act.id + 1}</td>
@@ -74,7 +75,7 @@ function DashboardMem2(props) {
     <>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
-          <h5>Another Version</h5>
+          <h3>Dashboard</h3>
         </div>
 
         <div class="table-responsive">
