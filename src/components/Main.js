@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/bootstrap.min.css";
 import "../assets/dashboard.css";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import Header from "./Header";
 import Nav from "./Nav";
 import Dashboard from "./Dashboard";
@@ -9,11 +10,20 @@ import Dashboard2 from "./Dashboard2";
 import DashboardMem from "./DashboardMem";
 import DashboardMem2 from "./DashboardMem2";
 import Create from "./Create";
+import { confirmCheck } from "../redux/ActionCreators";
+
+const mapStateToProps = (state) => {
+  return {
+    confirmCheck: state.confirmCheck,
+    actions: state.actions
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  confirmCheck: (id) => dispatch(confirmCheck(id)),
+});
 
 function Main(props) {
-  const DashboardV2 = ({ match }) => {
-    return <Dashboard2 />
-  }
   return (
     <>
       <Header />
@@ -21,13 +31,18 @@ function Main(props) {
       <div class="container-fluid" style={{ height: "80vh" }}>
         <Switch>
           <Route exact path="/">
-            <Dashboard />
+            <main class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+              <h1>Welcome!</h1>
+            </main>
           </Route>
           <Route path="/dashboard-mgm">
             <Dashboard />
           </Route>
           <Route path="/dashboard-mem">
-            <DashboardMem />
+            <DashboardMem
+              confirmCheck={props.confirmCheck}
+              actions={props.confirmCheck}
+            />
           </Route>
           <Route path="/dashboard-mgm2">
             <Dashboard2 />
@@ -45,4 +60,5 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+// export default Main;

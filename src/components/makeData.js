@@ -33,4 +33,4 @@ const funcs = {
     makeData
 }
 
-export default funcs
+export default funcs;

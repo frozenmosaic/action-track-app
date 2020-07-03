@@ -6,7 +6,7 @@ function Header(props) {
   return (
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
       <div className="navbar-brand border-danger col-sm-3 col-md-2 mr-0 sidebar-heading pl-4">
-        WHODUNIT
+        <a href="/">WHODUNIT</a>
       </div>
       <input
         type="text"

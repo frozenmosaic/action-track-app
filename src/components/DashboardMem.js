@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, FormGroup, Input } from "reactstrap";
 import { ACTIONS } from "../shared/actions";
 import PaginationMem from "./PaginationMem";
-import DashboardMem2 from "./DashboardMem2"
+import DashboardMem2 from "./DashboardMem2";
 
 function DashboardMem(props) {
-  const actionTable = ACTIONS.sort((a, b) => {
+  
+  const id = []
+  const handleInput = (event) => {
+    var targetId = event.target.id;
+    console.log(targetId)
+    id.push(parseInt(targetId))
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(id)
+    props.confirmCheck(id)
+  };
+
+  const actionTable = props.actions.sort((a, b) => {
     if (a.priority > b.priority) return 1;
     return -1;
   }).map((act) => {
@@ -20,7 +34,12 @@ function DashboardMem(props) {
           {act.confirm ? "Confirmed" : "Not Confirmed"}
         </td>
         <td class="text-center">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            id={act.id}
+            value={act.id}
+            onChange={handleInput}
+          />
         </td>
       </tr>
     );
@@ -32,27 +51,45 @@ function DashboardMem(props) {
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
           <h3>Dashboard</h3>
         </div>
-
-        <div class="table-responsive">
-          <table class="table table-sm">
-            <thead class="thead-dark align-middle">
-              <tr>
-                <th class="align-middle">#</th>
-                <th class="align-middle">Action</th>
-                <th class="align-middle">Priority</th>
-                <th class="align-middle">By</th>
-                <th class="align-middle">Department</th>
-                <th class="align-middle">Status</th>
-                <th class="text-center align-middle">
-                  <button class="btn-sm btn btn-primary text-light">
-                    Confirm
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>{actionTable}</tbody>
-          </table>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <div class="table-responsive">
+            <table class="table table-sm">
+              <thead class="thead-dark align-middle">
+                <tr>
+                  <th class="align-middle">#</th>
+                  <th class="align-middle">Action</th>
+                  <th class="align-middle">Priority</th>
+                  <th class="align-middle">By</th>
+                  <th class="align-middle">Department</th>
+                  <th class="align-middle">Status</th>
+                  <th class="text-center align-middle">
+                    <button
+                      class="btn-sm btn btn-primary text-light"
+                      type="submit"
+                    >
+                      Confirm
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>{actionTable}</tbody>
+            </table>
+          </div>
+        </form>
+        {/* <form onSubmit={handleSubmit} name="form">
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+              value="no"
+              onChange={handleInput}
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Submit
+          </button>
+        </form> */}
         <PaginationMem />
       </main>
     </>

@@ -23,7 +23,7 @@ A company would like to develop a feature to ensure that team members "perform a
   - Team members receive, confirm status and track actions
 
 * Internal use
-* Single Page Web Application, static
+* Single Page Web Application, static with minimal user interaction
 * Minimal database with two tables: users, actions 
 * Basic user authentication
 
@@ -74,6 +74,7 @@ Create Form
     - Departments ("Product", "HR", etc.)
     - Whole company is "All"
   - Additional Notes
+  - Notify
 
 Form Validation
 - Action is required
