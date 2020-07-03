@@ -53,7 +53,7 @@ Refer to sitemap.png
 - Status
 - Sortable
 
-![](sortTable.gif)
+![](sort.gif)
 
 **Team Members**
 - All actions assigned by managers, sorted by priority
@@ -63,7 +63,7 @@ Refer to sitemap.png
   - 1.1: more than 2 values (confirmed / in progress / completed), color-coded
 - Sortable
 
-![](confirmCheckbox.gif)
+![](confirm.gif)
 
 **Both**
 - Pagination
