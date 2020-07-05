@@ -1,10 +1,30 @@
 import { db } from "../db/firestore";
 
+export const addDoc = async () => {
+  var actionsRef = db.collection("actions");
+  await actionsRef.doc("1").set({
+    action:
+      "Velit incididunt esse Lorem deserunt nulla ea enim est amet do ex voluptate.",
+    by: "Alvis",
+    to: "Desmond",
+    confirm: false,
+    department: "Product",
+    priority: 1,
+  });
+};
+
 export const addDocs = async (docs) => {
   var actionsRef = db.collection("actions");
   const batch = db.batch();
   docs.map((a) => {
-    batch.set(a);
+    var newObj = {};
+    newObj.action = a.action;
+    newObj.by = a.by;
+    newObj.to = a.to;
+    newObj.confirm = a.confirm;
+    newObj.priority = a.priority;
+    // data.push(newObj);
+    batch.set(actionsRef.doc(a.id.toString()), newObj);
   });
   await batch.commit();
 };

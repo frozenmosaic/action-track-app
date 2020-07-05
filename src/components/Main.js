@@ -43,33 +43,32 @@ function Main(props) {
   return (
     <>
       <Header />
+      <Nav />
       <div className="container-fluid" style={{ height: "80vh" }}>
         <Switch>
           <Route exact path="/">
             {/* <Dashboard /> */}
-            <Firestore />
+            <Firestore
+              confirmCheck={props.confirmCheck}
+              actions={props.actions}
+            />
           </Route>
           <Route path="/dashboard-mgm">
-            <Nav />
             <Dashboard />
           </Route>
           <Route path="/dashboard-mem">
-            <Nav />
             <DashboardMem
               confirmCheck={props.confirmCheck}
               actions={props.actions}
             />
           </Route>
           <Route path="/dashboard-mgm2">
-            <Nav />
             <Dashboard2 />
           </Route>
           <Route path="/dashboard-mem2">
-            <Nav />
             <DashboardMem2 />
           </Route>
           <Route path="/create">
-            <Nav />
             <Create />
           </Route>
           <Redirect to="/" />

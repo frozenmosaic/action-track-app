@@ -10,3 +10,4 @@ import config from "./config";
 //   }
 export const app = firebase.initializeApp(config);
 export const db = app.firestore();
+export const actionsRef = db.collection("actions");

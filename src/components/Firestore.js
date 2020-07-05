@@ -1,24 +1,31 @@
-import React from "react";
-import { db } from "../db/firestore";
-import { addDocs } from "../db/fsoper";
+import React, { useState } from "react";
+import { db, actionsRef } from "../db/firestore";
 import { ACTIONS } from "../shared/actions";
+import PaginationMem from "./PaginationMem";
 
-const addDoc = async () => {
-  var actionsRef = db.collection("actions");
-  await actionsRef
-    .doc("1")
-    .set({
-      action:
-        "Velit incididunt esse Lorem deserunt nulla ea enim est amet do ex voluptate.",
-      by: "Alvis",
-      to: "Desmond",
-      confirm: false,
-      department: "Product",
-      priority: 1,
-    });
+const getAllDocs = async () => {
+  const actions = [];
+
+  const snapshop = await actionsRef.get();
+  snapshop.forEach((d) => {
+    actions.push(d.data());
+  });
+
+  return actions;
 };
 
-export default function Firestore() {
-  addDoc()
+const updateCf = async (id) => {
+  const batch = db.batch();
+  id.forEach(async (i) => {
+    const docRef = actionsRef.doc(i.toString());
+    const doc = await docRef.get();
+    const curCf = doc.data().confirm;
+    batch.update(docRef, { confirm: !curCf });
+  });
+  batch.commit();
+};
+
+export default function Firestore(props) {
+  // updateCf([0, 1, 2]);
   return <div></div>;
 }

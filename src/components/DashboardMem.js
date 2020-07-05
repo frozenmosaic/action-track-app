@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import { ACTIONS } from "../shared/actions";
 import PaginationMem from "./PaginationMem";
-import STMem from "./STMem"
+import STMem from "./STMem";
 
 function DashboardMem(props) {
   var [check, setCheck] = useState(props.actions.map((a) => null));
   var [id, setId] = useState(new Array());
+  var [status, setStatus] = useState();
 
   const handleInput = (event) => {
     var targetId = event.target.id;
     var checked = event.target.checked;
-    // alert(checked)
     if (checked) {
       id.push(parseInt(targetId));
       setId(id);
     }
-
-    console.log(id);
   };
 
   const handleSubmit = (event) => {
@@ -24,16 +22,9 @@ function DashboardMem(props) {
     props.confirmCheck(id);
     setCheck(check.map((c) => false));
     setId(new Array());
-    // console.log(id);
-    // setCheck(
-    //   check.forEach((c) => {
-    //     if (id.includes(c.id)) {
-    //       c.confirm = !c.confirm;
-    //     }
-    //   })
-    // );
   };
 
+  // const actions = getAllDocs();
   const actionTable = props.actions.map((act) => {
     return (
       <tr className="align-middle">
@@ -63,20 +54,6 @@ function DashboardMem(props) {
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-1 mb-3">
           <h3>Dashboard</h3>
         </div>
-        {/* <div
-          class="alert alert-success alert-dismissible fade show"
-          role="alert"
-        >
-          <button
-            type="button"
-            class="close"
-            data-dismiss="alert"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-          Success
-        </div> */}
         <form onSubmit={handleSubmit}>
           <div class="table-responsive">
             <table class="table table-sm">
@@ -102,20 +79,6 @@ function DashboardMem(props) {
             </table>
           </div>
         </form>
-        {/* <form onSubmit={handleSubmit} name="form">
-            <div class="form-group form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-                value="no"
-                onChange={handleInput}
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Submit
-            </button>
-          </form> */}
         <PaginationMem />
       </main>
     </>
