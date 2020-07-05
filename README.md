@@ -2,9 +2,11 @@
 
 **App deployed at: https://hidden-mesa.web.app/**
 
-Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Features and display responsiveness were *not* implemented.
+Disclaimer: The primary purpose of the prototype is to serve a mock-up on a desktop screen. Features, display responsiveness and database are *not* uniformly implemented.
 
-**Tech Stack**: ReactJS (bootstrapped via create-react-app), Redux, React-Router-DOM, Bootstrap
+**Tech Stack**: 
+- Front-end: ReactJS (create-react-app), Redux, React-Router-DOM, Bootstrap
+- Database: Firestore (Google) -- *in development*
 
 # 2. Background
 
