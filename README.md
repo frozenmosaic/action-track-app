@@ -2,11 +2,11 @@
 
 **App deployed at: https://hidden-mesa.web.app/**
 
-Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Features and display responsiveness were *not* implemented.
+Disclaimer: The prototype is meant to serve as a mock-up on a desktop screen. Features, database and display responsiveness were *not* implemented.
 
 **Tech Stack**: ReactJS (bootstrapped via create-react-app), Redux, React-Router-DOM, Bootstrap
 
-# 2. Background
+# 2. Problem
 
 A company would like to develop a feature to ensure that team members "perform an action" (Confirm I've read a new policy, Confirm I've changed the expired password for security, etc.). An idea is suggested: Build an app to require the selected team members/departments/whole company to confirm perform an action (I did it):
 
@@ -14,23 +14,13 @@ A company would like to develop a feature to ensure that team members "perform a
 - There should be a place for member to confirm he/she performed the required Action.
 - In the Report Dashboard, show the status of how the "Action" has been performed? Who did or did not? etc. (Need more insights from you)
 
-# 3. Specifications 
-- Definitions <br>
-: Action is one-liners <br>
-: User is an employee, either a manager or team member
-- Goals:
-  - Managers create, assign and track actions
-  - Team members receive, confirm status and track actions
+# 3. Solution
+The **WHODUNIT** app is to answer these questions. Its goals are:
 
-* Internal use
-* Single Page Web Application, static with minimal user interaction
-* Minimal database with two tables: users, actions 
-* Basic user authentication
+- Managers create, assign and track actions
+- Team members receive, confirm status and track actions
 
-# 4. Sitemap 
-![](sitemap.png)
-
-# 5. User Journey
+# 4. User Journey
 
 **Manager**
 
@@ -42,33 +32,31 @@ A company would like to develop a feature to ensure that team members "perform a
 
 - Signs into their profile if existing; otherwise creates one; option for credential reset
 - Landing and only page is Dashboard
+ 
+# 5. Sitemap 
+![](sitemap.png)
 
 # 6. Main Features
 
 ## 6.1. Dashboard
 
 **Managers**
-- All actions assigned by themselves, sorted by priority
+- All actions assigned by themselves
 - Assignees
 - Status
-- Sortable
+- Sort, filter, pagination
 
 ![](sort.gif)
 
 **Team Members**
-- All actions assigned by managers, sorted by priority
+- All actions assigned to themselves
 - Assigners
-- Status and Submission / Updating of statuses: two versions:
-  - 1.0: 2 values (confirmed / not confirmed), color-coded
-  - 1.1: more than 2 values (confirmed / in progress / completed), color-coded
-- Sortable
+- Status and Submission of statuses: 
+  - 2 values (confirmed / not confirmed), color-coded
+  - More than 2 values (confirmed / in progress / completed), color-coded
+- Sort, filter, pagination
 
 ![](confirm.gif)
-
-Action status changes are populated into database.
-
-**Both**
-- Pagination
 
 ## 6.2. Create Action
 
@@ -80,7 +68,7 @@ Action status changes are populated into database.
     - Departments ("Product", "HR", etc.)
     - Whole company is "All"
   - Additional Notes
-  - Notify
+  - Notify assignees
 
 **Form Validation**
 - Action is required
@@ -90,33 +78,39 @@ Action status changes are populated into database.
 **Bulk Creation**
   - Allow for imports. Accepted file types: .csv.
 
-Created actions are populated into database.
-
-## 6.3 Search
+## 6.3. Search
 
 Search for employee names (managers/members), departments, action content
 
-## 6.4 User Profile
+## 6.4. User Profile
 
 Basic profile management: creation of profiles, authentication and credential reset
+
+# 7. Technical Specifications 
+* Definitions <br>
+  - Action is one-liners (short text) <br>
+  - User is an employee, either a manager or team member
+* Internal use
+* Single Page Web Application, static with minimal user interaction
+* Minimal database with two tables: users, actions 
+* Basic user authentication
   
-# 7. Potential Expansion
+# 8. Ideas
 
 1. Notification:
    - Managers: new completions
    - Members: new assigned actions
    - Reminder to Members
 2. Rich Action
-   1. Title, content, file attachment
-   2. Action collaborators
-   3. Different types and statuses of Action
+   - Title, content, file attachment
+   - Action collaborators
+   - Different types and statuses of Action
 3. Enhanced Dashboard table/report:
-   1. Sort/filter
-   2. Compile basic reports using basic statiscal queries, for e.g.: # of confirmed vs. not confirmed 
+   - Compile reports using basic statistical queries, for e.g.: # of confirmed vs. not confirmed 
 4. Date Tracking (deadline, timestamps on creation/status updates)
 
-These are ideas for brainstorming. Development depends on direct feedback and usage of team members and managers.
+Development depends on direct feedback and usage of team members and managers.
 
-# 8. References
+# 9. References
 
 Dashboard Design Inspiration: https://getbootstrap.com/docs/4.5/examples/dashboard/
