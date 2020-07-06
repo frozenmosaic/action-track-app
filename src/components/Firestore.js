@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { db, actionsRef } from "../db/firestore";
 import { ACTIONS } from "../shared/actions";
 import PaginationMem from "./PaginationMem";
@@ -14,15 +14,15 @@ const getAllDocs = async () => {
   return actions;
 };
 
-const updateCf = (id) => {
+const updateCf = (id, actions) => {
   console.log("updating db...");
   const batch = db.batch();
   id.forEach(async (i) => {
     const docRef = actionsRef.doc(i.toString());
-    const doc = await docRef.get();
-    const curCf = doc.data().confirm;
-    batch.update(docRef, { confirm: !curCf });
-    console.log("batch update")
+    // const doc = await docRef.get();
+    // const curCf = doc.data().confirm;
+    batch.update(docRef, { confirm: !actions[i].confirm });
+    console.log("batch update");
   });
   batch
     .commit()
@@ -33,9 +33,18 @@ const updateCf = (id) => {
 };
 
 export default function Firestore(props) {
-  var [check, setCheck] = useState(props.actions.map((a) => null));
-  var [id, setId] = useState(new Array());
   var [actions, setActions] = useState([]);
+
+  getAllDocs()
+    .then((a) => {
+      setActions(a);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
+  var [check, setCheck] = useState(actions.map((a) => null));
+  var [id, setId] = useState(new Array());
 
   const handleInput = (event) => {
     var targetId = event.target.id;
@@ -49,13 +58,16 @@ export default function Firestore(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(id);
-    updateCf(id);
+    updateCf(id, actions);
+    setCheck(actions.map((a) => null));
+    getAllDocs()
+      .then((a) => {
+        setActions(a);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
-
-  const actionsPromise = getAllDocs();
-  actionsPromise.then((a) => {
-    setActions(a);
-  });
 
   const actionTable = actions.map((act, index) => {
     return (
