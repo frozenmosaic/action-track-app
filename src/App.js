@@ -12,7 +12,6 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Main />
-          {console.log(store.getState())}
         </div>
       </BrowserRouter>
     </Provider>
